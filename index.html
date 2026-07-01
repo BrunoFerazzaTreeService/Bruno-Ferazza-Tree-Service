@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Ferazza Tree Service | Luxury Tree Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1A3A2B; /* Deep Forest Green */
+            --accent: #C5A880;  /* Luxury Gold/Champagne */
+            --dark: #111111;    /* Charcoal Black */
+            --light: #F9F8F6;   /* Off-White */
+            --text: #444444;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Common Utilities */
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 15px auto 0;
+        }
+
+        .btn-luxury {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            border: 1px solid var(--primary);
+            transition: all 0.4s ease;
+        }
+
+        .btn-luxury:hover {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #white;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            margin-right: 15px;
+        }
+
+        .brand-name {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(17, 34, 27, 0.75), rgba(17, 34, 27, 0.65)), url('https://brunoferazzatreeservice.com/wp-content/uploads/2025/11/Tree-Trimming.jpg') no-repeat center center/cover;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 15%;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 4.2rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 800px;
+            letter-spacing: 1px;
+        }
+
+        /* About Us Section */
+        .about {
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            text-align: left;
+        }
+
+        .about-content h2::after {
+            margin: 15px 0 0 0;
+        }
+
+        .about-content p {
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        .about-img {
+            flex: 1;
+            border: 15px solid #ffffff;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #eee;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .service-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-card:hover .service-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .service-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .service-info h3 {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-info p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .services-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .reviews .section-title {
+            color: #ffffff;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .review-card {
+            background-color: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .review-card p {
+            font-style: italic;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* FAQs Section */
+        .faqs {
+            background-color: var(--light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            margin-bottom: 15px;
+            border: 1px solid #eaeaea;
+        }
+
+        .faq-question {
+            padding: 22px 30px;
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 22px 30px;
+            max-height: 200px;
+        }
+
+        .faq-item .fa-chevron-down {
+            transition: transform 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .faq-item.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #aaaaaa;
+            padding: 80px 10% 30px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-serif);
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #aaaaaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact i {
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #222222;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            section { padding: 70px 5%; }
+            .about { flex-direction: column; gap: 40px; }
+            .hero h1 { font-size: 2.8rem; }
+            .nav-menu { display: none; } /* Standard simplification for single-file deployment */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-area">
+                <img src="https://brunoferazzatreeservice.com/wp-content/uploads/2025/10/bruno-ferazza-23-2048x1589.png" alt="Bruno Ferazza Tree Service Logo" class="logo-img">
+                <div class="brand-name">Bruno Ferazza<br><span style="font-size: 0.9rem; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 3px; color: var(--accent);">Tree Service</span></div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Comprehensive Tree Management for Every Yard</h1>
+        <p>From structural pruning and crown reduction to stump grinding and fire hazard clearance, our licensed team in Roseville, CA, guarantees safe, accurate, and efficient tree care for every property.</p>
+        <a href="https://brunoferazzatreeservice.com/" class="btn-luxury btn-accent">Explore Website</a>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">About Us</h2>
+            <p>At Bruno Ferazza Tree Services, we take pride in providing extraordinary tree care that reflects our promise of safety, honesty, and environmental responsibility. Our mission is to deliver unfailing solutions that protect your property and promote healthy, thriving trees. We aim to be Roseville’s most reliable tree care experts for homes and businesses.</p>
+            <p>With years of local expertise serving North Highlands and surrounding premier communities, our arborists combine classic craftsmanship with clean modern practices to elevate your landscape's architectural elegance.</p>
+            <a href="https://brunoferazzatreeservice.com/about-us/" target="_blank" class="btn-luxury">Learn More About Us</a>
+        </div>
+        <div class="about-img">
+            <img src="https://brunoferazzatreeservice.com/wp-content/uploads/2025/10/Tree-Removal-1152x1536.jpg" alt="Bruno Ferazza Professional Tree Work">
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://brunoferazzatreeservice.com/wp-content/uploads/2025/10/Tree-Removal-1152x1536.jpg" alt="Tree Removal Service">
+                </div>
+                <div class="service-info">
+                    <h3>Tree Removal</h3>
+                    <p>Safe, structural removal of dead, hazardous, or complex tree structures designed to safeguard your elegant home footprint.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://brunoferazzatreeservice.com/wp-content/uploads/2025/11/Tree-Trimming.jpg" alt="Tree Trimming Service">
+                </div>
+                <div class="service-info">
+                    <h3>Tree Trimming</h3>
+                    <p>Artistic canopy sculpting, deadwood cleaning, and strategic pruning solutions to support longevity and tree aesthetics.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://brunoferazzatreeservice.com/wp-content/uploads/2025/10/Stump-Grindingg.jpg" alt="Tree Stump Removal Service">
+                </div>
+                <div class="service-info">
+                    <h3>Tree Stump Removal</h3>
+                    <p>Deep foundational stump grinding and extraction to ensure seamless landscape architectural layouts.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://brunoferazzatreeservice.com/wp-content/uploads/2025/10/Shrub-trimming-services-near-me.jpg" alt="Shrub Trimming Service">
+                </div>
+                <div class="service-info">
+                    <h3>Shrub Trimming</h3>
+                    <p>Meticulous design, hedging, and precise shearing to create symmetrical, visually balanced landscape framing.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="services-cta">
+            <a href="https://brunoferazzatreeservice.com/our-services/" target="_blank" class="btn-luxury btn-accent">Explore All Services</a>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2 class="section-title">Client Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Bruno and his crew were impeccably professional. They took down a huge dangerous oak near our roof line safely, quickly, and left the yard looking perfect. Highly recommended!"</p>
+                <div class="review-author">- Arthur M., North Highlands</div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"The aesthetic trimming they performed on our front lawn maples completely transformed our property value. Real attention to tree health and design detail."</p>
+                <div class="review-author">- Eleanor G., North Highlands</div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"Honest, safe, and transparent pricing. They cleared multiple old stumps smoothly. Fantastic environmental responsibility and clean execution."</p>
+                <div class="review-author">- Raymond V.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faqs" id="faqs">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">What is your main operational service area? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">We are centrally based out of North Highlands, California, and cater to properties requiring premium tree styling and removal services throughout the region.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Are your tree removal services insured? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Yes, absolute safety and honest accountability are core pillars of Bruno Ferazza Tree Service. We carry comprehensive liability and structural safety insurance policies.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How does stump grinding benefit my lawn layout? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Stump removal clears deep underground wood, stopping root decay pests and opening valuable square footage for foundational hardscaping or lush replanting.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Information</h4>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> <span>7225 30th St, North Highlands, CA 95660 USA</span></li>
+                    <li><i class="fas fa-phone-alt"></i> <span>(916) 201-7462</span></li>
+                    <li><i class="fas fa-envelope"></i> <span>info@brunoferazzatreeservice.com</span></li>
+                    <li><i class="fas fa-clock"></i> <span>Mon - Fri<br>08:00 AM - 05:00 PM</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Location</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.2047169930884!2d-121.396941!3d38.69854110000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809b1a0c0083584d%3A0x63db738cdbd4d95a!2sBruno%20Ferazza%20Tree%20Service!5e1!3m2!1sen!2s!4v1782943049487!5m2!1sen!2s" class="map-container" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Ranking Geeks. All Rights Reserved.</p>
+            <div>
+                <a href="https://g.page/r/CVrZ1NuMc9tjEBM/" target="_blank" style="color:#aaa; font-size:1.2rem; margin-left:15px;"><i class="fab fa-google"></i></a>
+                <a href="https://www.google.com/search?kgmid=/g/11g_fbv_x" target="_blank" style="color:#aaa; font-size:1.2rem; margin-left:15px;"><i class="fas fa-tree"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
